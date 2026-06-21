@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Autoevaluación - Jesualdo Sosa</title>
+<style>
+body { font-family: Arial; margin: 20px; background: #f5f5f5; }
+h1 { color: #333; }
+.question { background: white; padding: 10px; margin: 10px 0; border-radius: 8px; }
+button { padding: 10px 15px; margin-top: 10px; cursor: pointer; }
+#result { font-size: 18px; margin-top: 20px; font-weight: bold; }
+.explanation { display:none; margin-top: 5px; color: #444; }
+</style>
+</head>
+<body>
+
+<h1>Autoevaluación: Jesualdo Sosa</h1>
+<p>Responde Verdadero o Falso y luego presiona "Corregir".</p>
+
+<form id="quiz">
+
+<div class="question">
+1. Jesualdo Sosa fue un educador uruguayo vinculado a la Escuela Nueva.<br>
+<input type="radio" name="q1" value="V"> Verdadero
+<input type="radio" name="q1" value="F"> Falso
+<div class="explanation">Correcto: Fue parte de corrientes de la Escuela Nueva.</div>
+</div>
+
+<div class="question">
+2. Propuso una educación basada únicamente en la memorización.<br>
+<input type="radio" name="q2" value="V"> Verdadero
+<input type="radio" name="q2" value="F"> Falso
+<div class="explanation">Correcto: Rechazaba la memorización mecánica.</div>
+</div>
+
+<div class="question">
+3. Defendía una escuela conectada con la realidad del niño.<br>
+<input type="radio" name="q3" value="V"> Verdadero
+<input type="radio" name="q3" value="F"> Falso
+<div class="explanation">Correcto: Buscaba una educación contextualizada.</div>
+</div>
+
+<div class="question">
+4. Trabajó la literatura infantil y la escritura creativa.<br>
+<input type="radio" name="q4" value="V"> Verdadero
+<input type="radio" name="q4" value="F"> Falso
+<div class="explanation">Correcto: Promovía la expresión escrita y creativa.</div>
+</div>
+
+<div class="question">
+5. Promovía la participación activa de los estudiantes.<br>
+<input type="radio" name="q5" value="V"> Verdadero
+<input type="radio" name="q5" value="F"> Falso
+<div class="explanation">Correcto: El alumno es protagonista del aprendizaje.</div>
+</div>
+
+<div class="question">
+6. Consideraba que el arte no tenía importancia en la educación.<br>
+<input type="radio" name="q6" value="V"> Verdadero
+<input type="radio" name="q6" value="F"> Falso
+<div class="explanation">Correcto: El arte era central en su propuesta.</div>
+</div>
+
+<div class="question">
+7. Fue influenciado por corrientes pedagógicas progresistas.<br>
+<input type="radio" name="q7" value="V"> Verdadero
+<input type="radio" name="q7" value="F"> Falso
+<div class="explanation">Correcto: Recibió influencias de la Escuela Nueva.</div>
+</div>
+
+<div class="question">
+8. Defendía una escuela rígida y autoritaria.<br>
+<input type="radio" name="q8" value="V"> Verdadero
+<input type="radio" name="q8" value="F"> Falso
+<div class="explanation">Correcto: Rechazaba el autoritarismo escolar.</div>
+</div>
+
+<div class="question">
+9. El niño es un sujeto activo en su aprendizaje.<br>
+<input type="radio" name="q9" value="V"> Verdadero
+<input type="radio" name="q9" value="F"> Falso
+<div class="explanation">Correcto: El niño es protagonista del proceso educativo.</div>
+</div>
+
+<div class="question">
+10. Sus ideas siguen vigentes en la educación actual.<br>
+<input type="radio" name="q10" value="V"> Verdadero
+<input type="radio" name="q10" value="F"> Falso
+<div class="explanation">Correcto: Su legado sigue presente en debates educativos.</div>
+</div>
+
+<button type="button" onclick="corregir()">Corregir</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function corregir() {
+    const respuestas = {
+        q1: "V",
+        q2: "F",
+        q3: "V",
+        q4: "V",
+        q5: "V",
+        q6: "F",
+        q7: "V",
+        q8: "F",
+        q9: "V",
+        q10: "V"
+    };
+
+    let score = 0;
+
+    for (let q in respuestas) {
+        const selected = document.querySelector('input[name="'+q+'"]:checked');
+        if (selected && selected.value === respuestas[q]) {
+            score++;
+        }
+    }
+
+    document.querySelectorAll('.explanation').forEach(e => e.style.display = "block");
+
+    document.getElementById("result").innerText =
+        "Tu puntaje es: " + score + " / 10";
+}
+</script>
+
+</body>
+</html>
